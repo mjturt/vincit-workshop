@@ -18,15 +18,28 @@ const fetchFaces = async (imageBuffer) => {
   return result.faceAnnotations
 }
 
+const fetchLogos = async (imageBuffer) => {
+  const [result] = await client.logoDetection({
+    image: { content: imageBuffer}
+  });
+    console.log(result)
+  return result.logoAnnonations
+}
+
 fastify.post("/labels", async (request, reply) => {
   const labels = await fetchLabels(new Buffer(request.body.image.split(",")[1], "base64"))
-    console.log(labels)
   reply.send({ labels });
 });
 
 fastify.post("/faces", async (request, reply) => {
   const faces = await fetchFaces(new Buffer(request.body.image.split(",")[1], "base64"))
   reply.send({ faces });
+});
+
+fastify.post("/logos", async (request, reply) => {
+  const logos = await fetchLogos(new Buffer(request.body.image.split(",")[1], "base64"))
+    console.log(logos)
+  reply.send({ logos });
 });
 
 const start = async () => {
