@@ -2,6 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 import Webcam from "react-webcam";
 
+const Logos = ({ logos }) => {
+  return (
+    <ul>
+      {logos.map(item => {
+        return <li key={item.description}>{item.description}</li>;
+      })}
+    </ul>
+  );
+};
+
 const Labels = ({ labels }) => {
   return (
     <ul>
@@ -37,7 +47,7 @@ const Faces = ({ faces }) => {
   );
 };
 
-const WebcamComponent = ({ onLabelsFetch, onFacesFetch }) => {
+const WebcamComponent = ({ onLabelsFetch, onFacesFetch, onLogosFetch }) => {
   const videoConstraints = {
     facingMode: "user",
     width: 512,
@@ -60,6 +70,7 @@ const WebcamComponent = ({ onLabelsFetch, onFacesFetch }) => {
       />
       <button onClick={capture(onLabelsFetch)}>Fetch labels</button>
       <button onClick={capture(onFacesFetch)}>Fetch faces</button>
+      <button onClick={capture(onLogosFetch)}>Fetch logos</button>
     </>
   );
 };
@@ -78,6 +89,7 @@ const postScreenshot = async (img, api) => {
 function App() {
   const [labels, setLabels] = useState([]);
   const [faces, setFaces] = useState([]);
+  const [logos, setLogos] = useState([]);
   const updateLabels = async img => {
     const response = await postScreenshot(img, "/labels");
     setLabels(response.labels);
@@ -86,14 +98,20 @@ function App() {
     const response = await postScreenshot(img, "/faces");
     setFaces(response.faces);
   };
+  const updateLogos = async img => {
+    const response = await postScreenshot(img, "/logos");
+    setLogos(response.logos);
+  };
   return (
     <div className="App">
       <WebcamComponent
         onLabelsFetch={updateLabels}
         onFacesFetch={updateFaces}
+        onLogosFetch={updateLogos}
       />
       <Labels labels={labels} />
       <Faces faces={faces} />
+      <Logos logos={logos} />
     </div>
   );
 }
