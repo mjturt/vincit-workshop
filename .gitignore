@@ -4,3 +4,4 @@ tags
 tags
 node_modules/
 dist/
+*lock.json
