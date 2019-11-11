@@ -1,13 +1,36 @@
+:root {
+	--color-blue-dark: #26547c;
+	--color-blue-light: #574ae2;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+
+	font-family: 'Poppins', sans-serif;
+	/* font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif; */
+	background-image: linear-gradient(to right, var(--color-blue-dark), var(--color-blue-light));
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 36px;
+}
+
+h1 span {
+	background-image: linear-gradient(to bottom, #7e358f, #ffb089);
+	color: transparent;
+
+	-webkit-background-clip: text;
+}
+
+.App video {
+	border-radius: 30px;
 }
