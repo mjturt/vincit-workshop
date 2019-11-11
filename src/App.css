@@ -1,12 +1,57 @@
+:root {
+	--color-blue-dark: #26547c;
+	--color-blue-light: #574ae2;
+	--color-red: #f76f8e;
+	--color-light: #ffead0;
+}
+
 .App {
-  text-align: center;
+	text-align: center;
 }
 
 ul > li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 button {
-  display: block;
-  margin: auto;
+	display: block;
+	margin: 20px auto;
+	padding: 10px 30px;
+	border-style: none;
+	border-radius: 5px;
+	font-size: 25px;
+	text-transform: uppercase;
+	background-color: var(--color-light);
+	color: var(--color-blue-dark);
+	transition: .3s;
+}
+
+button:hover {
+	cursor: pointer;
+	transform: scale(1.05);
+}
+
+h1 {
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-size: 36px;
+	color: var(--color-light);
+}
+
+h1 span {
+	background-image: linear-gradient(to bottom, var(--color-red), var(--color-light));
+	color: transparent;
+	font-weight: 900;
+
+	-webkit-background-clip: text;
+}
+
+.App video {
+	border-radius: 30px;
+}
+
+#btn-labels,
+#btn-logos {
+	display: none;
 }

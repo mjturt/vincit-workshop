@@ -68,9 +68,9 @@ const WebcamComponent = ({ onLabelsFetch, onFacesFetch, onLogosFetch }) => {
         ref={webcamRef}
         screenshotFormat="image/jpeg"
       />
-      <button onClick={capture(onLabelsFetch)}>Fetch labels</button>
-      <button onClick={capture(onFacesFetch)}>Fetch faces</button>
-      <button onClick={capture(onLogosFetch)}>Fetch logos</button>
+      <button id="btn-labels" onClick={capture(onLabelsFetch)}>Fetch labels</button>
+      <button id="btn-faces" onClick={capture(onFacesFetch)}>Can you work?</button>
+      <button id="btn-logos" onClick={capture(onLogosFetch)}>Fetch logos</button>
     </>
   );
 };
