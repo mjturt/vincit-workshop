@@ -1,3 +1,6 @@
 backend/googlekey.json
 tags
 *tern*
+tags
+node_modules/
+dist/
