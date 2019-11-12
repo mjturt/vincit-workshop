@@ -24,26 +24,9 @@ const Labels = ({ labels }) => {
 
 const Faces = ({ faces }) => {
   return (
-    <ul>
-      {faces.map(face => {
-        return (
-          <>
-            <li
-              key={`Joy: ${face.joyLikelihood}`}
-            >{`Joy: ${face.joyLikelihood}`}</li>
-            <li
-              key={`Anger: ${face.angerLikelihood}`}
-            >{`Anger: ${face.angerLikelihood}`}</li>
-            <li
-              key={`Sorrow: ${face.sorrowLikelihood}`}
-            >{`Sorrow: ${face.sorrowLikelihood}`}</li>
-            <li
-              key={`Surprise: ${face.surpriseLikelihood}`}
-            >{`Surprise: ${face.surpriseLikelihood}`}</li>
-          </>
-        );
-      })}
-    </ul>
+      <div>
+          {faces ? 'Pääset sisään' : 'Et pääse sisään'}
+          </div>
   );
 };
 
@@ -96,7 +79,8 @@ function App() {
   };
   const updateFaces = async img => {
     const response = await postScreenshot(img, "/faces");
-    setFaces(response.faces);
+      console.log(response)
+    setFaces(response.success);
   };
   const updateLogos = async img => {
     const response = await postScreenshot(img, "/logos");
